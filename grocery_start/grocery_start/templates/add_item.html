@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agregar</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+  </head>
+  <body>
+    <form method="post" action="/item" class="form-add">
+      <h1>Add Item</h1>
+      <label for="SKU">SKU:</label>
+      <input type="text" id="SKU" name="SKU" required /><br />
+      <label for="Name">Nombre:</label>
+      <input type="text" id="Name" name="Name" required /><br />
+      <label for="Description">Descripcicion:</label>
+      <input type="text" id="Description" name="Description" required /><br />
+      <label for="Price">Precio:</label>
+      <input type="number" id="Price" name="Price" step="0.01" required /><br />
+      <label for="Quantity">Cantidad:</label>
+      <input type="number" id="Quantity" name="Quantity" required /><br />
+      <label for="Expiration_Date">Fecha de caducidad:</label>
+      <input
+        type="date"
+        id="Expiration_Date"
+        name="Expiration_Date"
+        required
+      /><br />
+      <button type="submit">Agregar</button>
+    </form>
+  </body>
+</html>

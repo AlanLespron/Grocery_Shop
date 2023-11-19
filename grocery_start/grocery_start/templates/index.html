@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grocery List</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Grocery List</h1>
+
+      <form
+        method="post"
+        action="{{ url_for('convert_all_items') }}"
+        style="margin-bottom: 10px"
+      >
+        <label for="currency">Moneda:</label>
+        <input type="text" id="currency" name="currency" required />
+        <button type="submit">Convertir Todos</button>
+      </form>
+
+      <ul>
+        {% for item in items %}
+        <li>
+          {{ item.Name }} - {{ item.Price }} USD
+          <form
+            method="post"
+            action="{{ url_for('delete_item', item_id=item.id) }}"
+            style="display: inline-block"
+            class="delete-form"
+          >
+            <button type="submit" class="delete-btn">Eliminar</button>
+          </form>
+          {% if item.converted_price %}
+          <p>
+            Precio convertido: {{ item.converted_price }} {{ item.currency }}
+          </p>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+
+      <a href="{{ url_for('add_item') }}"><button>Agregar</button></a>
+    </div>
+  </body>
+</html>
