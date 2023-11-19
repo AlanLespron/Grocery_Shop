@@ -1,6 +1,9 @@
 # Grocery_Shop
 Repo proyecto final de Arquitectura de software
 
+## Video
+https://drive.google.com/file/d/1Inbh844ZTSloao94isWnqMlH6zcXCt96/view
+
 ## Instalación
 
 1. Clona este repositorio:
